@@ -1,0 +1,7 @@
+---
+# roles/common/tasks/redhat.yml
+- name: Install vim
+  ansible.builtin.yum:
+    name: "vim"
+    state: present
+  become: yes

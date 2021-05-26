@@ -1,0 +1,9 @@
+---
+# tasks file for common
+- name: Install vim RHEL
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
+
+- name: Install vim for Debian
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
