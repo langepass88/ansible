@@ -9,9 +9,6 @@ nginx_vhosts:
     index: "index.php index.html index.htm"
     error_page: "500 502 503 504  /50x.html"
     access_log: "/var/log/nginx/{{ server_name }}.access.log main"
-    # error_log: ""
-    # state: "present"
-    # template: "{{ nginx_vhost_template }}"
     error_log: ""
     state: "present"
     template: "{{ nginx_vhost_template }}"
@@ -48,10 +45,6 @@ php_packages:
   - php-zip
   - php-mysql
   - php-fpm
-
-mysql_db: "wordpress" 
-mysql_user: "wordpress"
-mysql_password: "WordpreSS0!"
 
 mysql_databases:
   - name: "{{ mysql_db }}"

@@ -32,3 +32,15 @@
   template:
     src: "wp-config.php.j2"
     dest: "/var/www/{{ server_name }}/wordpress/wp-config.php"
+
+# Ignore tasks
+- name: Do not count this a failure
+  ansible.builtin.command: /bin/false
+  ignore_errors: yes
+
+- name: This executes, fails, and the failure is ignored
+  ansible.builtin.command: /bin/true
+  ignore_unreachable: yes
+- name: This executes, fils, and ends the play for this hots
+  ansible.builtin.command: /bin/true
+

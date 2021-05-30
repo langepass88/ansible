@@ -3,11 +3,23 @@
   become: yes
   vars_files:
     - vars/wordpress.yml
+    - vars/wordpress_vault.yml
   pre_tasks:
     - name: Set discovered Ansible Python interpreter.
       set_fact:
         ansible_python_interpreter: "{{ ansible_facts.python.executable }}"
       when: ansible_python_interpreter is not defined
+    # - name: build docker api_files image
+    #   docker_image:
+    #     name: api_files:v.1.0.0
+    #     state: present
+    #     push: yes
+    #  - name: Restart services
+    #     community.docker.docker_compose:
+    #     project_src: flask
+    #     build: no
+    #     restarted: yes
+    #     register: output
   roles:
     - { role: geerlingguy.nginx, tags: [nginx] }
     - { role: geerlingguy.php, tags: [php] }

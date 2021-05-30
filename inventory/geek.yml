@@ -2,5 +2,5 @@ all: # all hosts
   children: # this child /group
     geek: # group name
       hosts: # host in group
-        192.168.1.39:
+        192.168.1.66:
          ansible_user: "geek" 
